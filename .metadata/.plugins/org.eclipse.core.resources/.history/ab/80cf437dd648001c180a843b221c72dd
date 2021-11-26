@@ -1,0 +1,44 @@
+package com.lema.primeraclase;
+
+/*
+ * Clase Principal
+ *
+ * @author: Walther Joao Gaibor <mailto:wgaibor@teclemas.edu.ec>
+ * @version 1.0
+ * @since 11/11/2021
+ */
+ 
+public class HolaMundo {
+	
+	String nombre = "Joao";
+	final int cantidad = 2;
+
+	/*
+	 * Método principal o de arranque de un programa java.
+	 *
+	 * @author: Walther Joao Gaibor <mailto:wgaibor@teclemas.edu.ec>
+	 * @version 1.0
+	 * @since 11/11/2021
+	 */
+	public static void main(String[] args) {
+		//Variable de tipo String que se emplea para la salida por la consola.
+		//nombre = "Joao";
+		//Salida por consola
+		//System.out.println("Hola mundo  "+nombre);
+		System.out.println("bienvenido");
+		Suma walther = new Suma();
+		Suma joao = new Suma();
+		Suma objeto2 = new Suma();
+		Resta walther1 = new Resta();
+		//joao.valorConstante();
+		System.out.println("El resultado de la operación es"+(walther.resultado() * joao.resultado() - walther1.resultado()));
+																	//2            *    2
+	}
+	
+	public static int suma() {
+		String apellido = "gaibor";
+		return 1 + 1;
+	}
+
+
+}

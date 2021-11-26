@@ -1,0 +1,25 @@
+package com.lemas.poo;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Clase4 {
+
+	public static void main(String[] args) {
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader (isr);
+		System.out.println("Cual es tu apellido");
+		try {
+			String apellido = br.readLine();
+			if(apellido.isEmpty()) {
+				System.out.println("El apellido no puede ser vacio");
+			} else {
+				System.out.println("Mi apellido es "+apellido);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

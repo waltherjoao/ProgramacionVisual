@@ -1,0 +1,8 @@
+package com.lema.primeraclase;
+
+public class Suma {
+
+	public int resultado() {
+		return HolaMundo.suma();
+	}
+}

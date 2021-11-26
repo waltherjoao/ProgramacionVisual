@@ -1,0 +1,12 @@
+package com.lema.primeraclase;
+
+public class Suma {
+
+	public int resultado() {
+		return HolaMundo.suma();
+	}
+	
+	public int valorConstante() {
+		return 2;
+	}
+}

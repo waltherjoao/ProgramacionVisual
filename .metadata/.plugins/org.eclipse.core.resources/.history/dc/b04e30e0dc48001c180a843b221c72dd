@@ -1,0 +1,21 @@
+package com.lema.primeraclase;
+
+public class Suma {
+	
+	int valor1;
+	int valor2;
+
+	public Suma(int valor1, int valor2) {
+		this.valor1 = valor1;
+		this.valor2 = valor2;
+	}
+
+	public int resultado() {
+		valorConstante();
+		return HolaMundo.suma();
+	}
+	
+	private int valorConstante() {
+		return 2;
+	}
+}
