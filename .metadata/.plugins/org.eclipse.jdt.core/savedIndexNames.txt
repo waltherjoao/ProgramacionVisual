@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+/home/wgaibor/Documentos/joao/lemas/ProgramaciónVisual/espacioTrabajoPv/.metadata/.plugins/org.eclipse.jdt.core
-3277819690.index
-3929090989.index
