@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 
 public class Menu {
 
-	private JFrame frmMenu;
+	public JFrame frmMenu;
 
 	/**
 	 * Launch the application.
@@ -62,9 +62,21 @@ public class Menu {
 		mnNewMenu.add(mitIngresarPalabra);
 		
 		JMenuItem mitTraducirEspIng = new JMenuItem("Traducir espa\u00F1ol ingles");
+		mitTraducirEspIng.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TraerPalabraIngles ingles = new TraerPalabraIngles();
+				ingles.frame.setVisible(true);
+			}
+		});
 		mnNewMenu.add(mitTraducirEspIng);
 		
 		JMenuItem mitTraducirIngEng = new JMenuItem("Traducir ingl\u00E9s espa\u00F1ol");
+		mitTraducirIngEng.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TraerPalabraEspaniol espaniol = new TraerPalabraEspaniol();
+				espaniol.frame.setVisible(true);
+			}
+		});
 		mnNewMenu.add(mitTraducirIngEng);
 		
 		JSeparator separator = new JSeparator();
@@ -82,6 +94,12 @@ public class Menu {
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Calcular IVA");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CalculoIva calculoIva = new CalculoIva();
+				calculoIva.frame.setVisible(true);
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Suma");

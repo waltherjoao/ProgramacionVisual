@@ -115,6 +115,8 @@ public class Diccionario {
 		scrollPane.setBounds(55, 200, 342, 202);
 		frmDiccionario.getContentPane().add(scrollPane);
 		
+		DiccionarioService diccionarioService = new DiccionarioService();
+		lstPalabras = diccionarioService.getListadoPalabras();
 		diccionarioModel = new DiccionarioModel(lstPalabras);
 		table = new JTable(diccionarioModel);
 		scrollPane.setViewportView(table);
