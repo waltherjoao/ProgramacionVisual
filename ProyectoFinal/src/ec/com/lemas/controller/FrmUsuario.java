@@ -1,18 +1,33 @@
 package ec.com.lemas.controller;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import ec.com.lemas.DAO.UsuarioDao;
+import ec.com.lemas.models.Conexion;
 import ec.com.lemas.views.Usuario;
-
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.export.ExporterInput;
+import net.sf.jasperreports.export.OutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 
 public class FrmUsuario {
 
@@ -154,12 +169,51 @@ public class FrmUsuario {
 		});
 		btnEliminar.setBounds(310, 199, 89, 23);
 		frmUsuario.getContentPane().add(btnEliminar);
+		
+		JButton btnReporte = new JButton("Reporte");
+		btnReporte.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					JasperReport jasperReport = JasperCompileManager
+													.compileReport("C:\\Users\\walte\\JaspersoftWorkspace\\SecondReport\\Cherry.jrxml");
+					Connection conn = Conexion.conectar();
+					 // Parameters for report
+				     Map<String, Object> parameters = new HashMap<String, Object>();
+				     JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, conn);
+				     
+				     File outDir = new File("C:\\Users\\walte\\Documents\\Java\\ProgramacionVisual\\ProyectoFinal\\Reportes");
+				     outDir.mkdirs();
+				     
+				     JRPdfExporter exporter = new JRPdfExporter();
+				     
+				     ExporterInput exporterInput = new SimpleExporterInput(print);
+				     exporter.setExporterInput(exporterInput);
+				     
+				     OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput("C:\\Users\\walte\\Documents\\Java\\ProgramacionVisual\\ProyectoFinal\\Reportes\\ReporteCreado.csv");
+				     exporter.setExporterOutput(exporterOutput);
+				     
+				     SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+				     exporter.setConfiguration(configuration);
+				     exporter.exportReport();
+				     
+				     System.out.println("Generado el pdf");
+				     
+				} catch (JRException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnReporte.setBounds(250, 104, 89, 23);
+		frmUsuario.getContentPane().add(btnReporte);
 	}
 
-	protected void limpiarFormulario() {
+	private void limpiarFormulario() {
 		txtIdUsuario.setText("");
 		txtNombre.setText("");
 		txtPassword.setText("");
 		txtTipoUsuario.setText("");
 	}
+	
+
 }

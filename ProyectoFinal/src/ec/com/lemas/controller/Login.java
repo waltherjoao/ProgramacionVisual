@@ -1,18 +1,16 @@
 package ec.com.lemas.controller;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import ec.com.lemas.views.Usuario;
-
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Login {
 

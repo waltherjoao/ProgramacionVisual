@@ -14,6 +14,7 @@ public class UsuarioDao {
 	private String estado;
 	private Date fechaActualizacion;
 	private String usuarioCreacion;
+
 	public String getCodigoUsuario() {
 		return codigoUsuario;
 	}
